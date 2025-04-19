@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programming Prodigies Club</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.7; /* Improved default line height for better readability */
+        }
+
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 2px;
+            text-align: left;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+        }
+        #ext{
+            margin-left: 110px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: left;
+            
+            margin: 10px 0px 10px 5px /* Increased margin */
+        }
+
+        .logo img {
+            max-height: 90px; /* Slightly larger logo */
+            margin-right: 15px; /* Increased margin */
+            border-radius: 50%;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add shadow to the logo */
+            transition: transform 0.2s ease;
+        }
+
+        .logo img:hover {
+            transform: scale(1.1);
+        }
+
+        .logo h1 {
+            font-size: 2.2em; /* Larger heading */
+            font-weight: bold;  /* Make heading bold */
+            letter-spacing: -0.02em;
+        }
+
+        .tagline {
+            font-style: italic;
+            margin-bottom: 25px; /* Increased margin */
+            color: #000000; /* Light cyan color for tagline */
+            font-size: 1.1em;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .cta-button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 12px 25px; /* Increased padding */
+            font-size: 18px; /* Increased font size */
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease; /* Added box-shadow transition */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Stronger shadow */
+        }
+
+        .cta-button:hover {
+            background-color: #218838;
+            transform: scale(1.06); /* Increased scale */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* Increased shadow on hover*/
+        }
+
+        .cta-button:active {
+            transform: scale(1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        section {
+            padding: 40px 30px; /* Slightly increased horizontal padding */
+            max-width: 1000px; /* Slightly increased max-width */
+            margin: 0 auto;
+        }
+
+        h2 {
+            color: #007bff;
+            margin-bottom: 30px; /* Increased margin */
+            text-align: center;
+            font-size: 2.5em; /* Increased font size */
+            letter-spacing: -0.02em;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        /* About Section */
+        .history-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 30px; /* Increased gap */
+            margin-top: 30px; /* Increased margin */
+        }
+
+        .history-card {
+            background-color: white;
+            padding: 20px; /* Increased padding */
+            border-radius: 10px; /* Increased border-radius */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Slightly stronger shadow */
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .history-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .history-card h3 {
+            margin-top: 0;
+            margin-bottom: 12px; /* Increased margin */
+            color: #2c3e50; /* Darker heading color */
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .history-card p {
+            font-size: 1.1em; /* Increased font size */
+            color: #555;
+            line-height: 1.8;
+        }
+
+        #about {
+            border: 0px solid #007bff;
+            border-radius: 10px;
+            padding: 30px; /* Increased padding */
+            margin: 30px auto; /* Increased margin */
+            max-width: 1000px;
+            background-color: #f9f9f9; /* Slightly lighter background */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Team Section */
+        .team-members {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* Increased min-width */
+            gap: 30px; /* Increased gap */
+            margin-top: 30px; /* Increased margin */
+        }
+
+        .team-member {
+            background-color: white;
+            padding: 20px; /* Increased padding */
+            border-radius: 10px; /* Increased border-radius */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Slightly stronger shadow */
+            text-align: center;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .team-member img {
+            width: 100px; /* Increased size */
+            height: 100px; /* Increased size */
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px; /* Increased margin */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease;
+        }
+
+        .team-member img:hover {
+            transform: scale(1.1);
+        }
+
+        .team-member h3 {
+            margin-top: 0;
+            margin-bottom: 10px; /* Increased margin */
+            color: #2c3e50; /* Darker heading color */
+            font-size: 1.3em;
+            font-weight: bold;
+        }
+
+        .team-member p {
+            font-size: 1.1em; /* Increased font size */
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* Events Section */
+        .event-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Increased min-width */
+            gap: 30px; /* Increased gap */
+            margin-top: 30px; /* Increased margin */
+        }
+
+        .event-card {
+            background-color: white;
+            padding: 20px; /* Increased padding */
+            border-radius: 10px; /* Increased border-radius */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Slightly stronger shadow */
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .event-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .event-card h4 {
+            margin-top: 0;
+            margin-bottom: 12px; /* Increased margin */
+            color: #2c3e50; /* Darker heading color */
+            font-size: 1.4em;
+            font-weight: bold;
+        }
+
+        .event-card .date {
+            color: #888;
+            font-size: 1.1em; /* Increased font size */
+            margin-bottom: 15px; /* Increased margin */
+        }
+
+        .event-card p {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        /* Contact Section */
+        #contactForm {
+            max-width: 500px; /* Increased max-width */
+            margin: 30px auto; /* Increased margin */
+            padding: 30px; /* Increased padding */
+            background-color: white;
+            border-radius: 10px; /* Increased border-radius */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Slightly stronger shadow */
+        }
+
+        .form-group {
+            margin-bottom: 20px; /* Increased margin */
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px; /* Increased margin */
+            font-weight: bold;
+            color: #555;
+            font-size: 1.1em;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 12px; /* Increased padding */
+            border: 1px solid #ccc;
+            border-radius: 5px; /* Increased border-radius */
+            box-sizing: border-box;
+            font-size: 1.1em;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        button[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 12px 25px; /* Increased padding */
+            font-size: 18px; /* Increased font-size */
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+        }
+
+        button[type="submit"]:active {
+            transform: scale(1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .error-message {
+            color: red;
+            font-size: 0.9em;
+            margin-top: 8px; /* Increased margin */
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .success-message {
+            color: green;
+            margin-top: 15px;
+            text-align: center;
+            font-size: 1.2em;
+            animation: fadeIn 0.3s ease;
+        }
+
+        /* Resources Section */
+        .resource-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Increased min-width */
+            gap: 30px; /* Increased gap */
+            margin-top: 30px; /* Increased margin */
+        }
+
+        .resource-category {
+            background-color: white;
+            padding: 20px; /* Increased padding */
+            border-radius: 10px; /* Increased border-radius */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Slightly stronger shadow */
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .resource-category:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .resource-category h3 {
+            margin-top: 0;
+            margin-bottom: 12px; /* Increased margin */
+            color: #2c3e50; /* Darker heading color */
+            font-size: 1.3em;
+            font-weight: bold;
+        }
+
+        .resource-category ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .resource-category ul li {
+            margin-bottom: 10px; /* Increased margin */
+        }
+
+        .resource-category ul li a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+            font-size: 1.1em;
+        }
+
+        .resource-category ul li a:hover {
+            color: #004080;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #34495e; /* Darker footer background */
+            color: white;
+            position: sticky;
+            bottom: 0;
+            width: 100%;
+            margin-top: 10px;
+            box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .logo {
+                flex-direction: column;
+            }
+            .logo h1 {
+                margin-top: 10px;
+                font-size: 2em;
+            }
+            .tagline {
+                font-size: 1em;
+            }
+            .cta-button {
+                font-size: 16px;
+                padding: 10px 20px;
+            }
+            section {
+                padding: 30px 20px;
+            }
+            .team-members, .event-cards, .resource-categories {
+                grid-template-columns: 1fr;
+            }
+            #contactForm {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.jpg" alt="Club Logo">
+            <h1>Programming And Tech Skills Club</h1>
+        </div>
+    </header>
+    <p class="tagline" style="text-align: center;">Innovate. Create. Code.</p>
+    <div style="text-align: center;">
+        <button class="cta-button" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSddvdvh_pzAZqvnZQfnZgBU703AyWIFwssUcx-P5Ci3z6NYSQ/viewform?usp=dialog','_blank')">Join Us</button>
+    </div>
+
+    <section id="about">
+        <h2>About Us</h2>
+        <p>Welcome to the Programming And Tech Skills Club! Our vision is to foster a vibrant community of aspiring programmers, empowering them to explore the exciting world of technology and build innovative solutions. Our mission is to provide a platform for learning, collaboration, and growth through workshops, projects, and events.</p>
+        <div class="history-timeline">
+            <div class="history-card">
+                <h3>Founded</h3>
+                <p>Established in 2020, the club started with a small group of students passionate about coding.</p>
+            </div>
+            <div class="history-card">
+                <h3>First Workshop</h3>
+                <p>Conducted our first workshop on web development in 2021.</p>
+            </div>
+            <div class="history-card">
+                <h3>Community Growth</h3>
+                <p>Expanded our membership and started organizing regular events by 2023.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="team">
+        <h2>Our Team</h2>
+        <div class="team-members">
+            <div class="team-member">
+                <img src="js1.jpg" alt="Team Member 1">
+                <h3>Himanshu Dubey</h3>
+                <p>Joint Secretary</p>
+                <p>Supports the Secretary in managing the internal activities of the club. Their work includes helping with meetings, maintaining records, and keeping coordination among the members.</p>
+            </div>
+            <div class="team-member">
+                <img src="js2.jpg" alt="Team Member 2">
+                <h3>Shambhavi Keshari</h3>
+                <p>Joint Secretary</p>
+                <p>Supports the Secretary in managing the internal activities of the club. Their work includes helping with meetings, maintaining records, and keeping coordination among the members.</p>
+            </div>
+            <div class="team-member">
+                <img src="mh1.jpg" alt="Team Member 3">
+                <h3>Harshit Gupta</h3>
+                <p>Media Head</p>
+                <p>Creative force behind the visual and digital presence of the club.Represent the club’s identity, promote events, and engage the community through attractive and effective content.</p>
+            </div>
+            <div class="team-member">
+                <img src="mh2.jpg" alt="Team Member 3">
+                <h3>Arushi Mishra</h3>
+                <p>Media Head</p>
+                <p>Creative force behind the visual and digital presence of the club.Represent the club’s identity, promote events, and engage the community through attractive and effective content.</p>
+            </div>
+            <div class="team-member">
+                <img src="eh1.jpg" alt="Team Member 3">
+                <h3>Nayan Dixit</h3>
+                <p>Event Head</p>
+                <p>The Event Head is responsible for planning and managing all the events organized by the club. This includes coming up with event ideas, creating a plan, assigning tasks to teams, and making sure everything runs smoothly on the day of the event.</p>
+            </div>
+            <div class="team-member">
+                <img src="eh2.jpg" alt="Team Member 3">
+                <h3>Piyush Pandey</h3>
+                <p>Event Head</p>
+                <p>The Event Head is responsible for planning and managing all the events organized by the club. This includes coming up with event ideas, creating a plan, assigning tasks to teams, and making sure everything runs smoothly on the day of the event.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="events">
+        <h2>Events</h2>
+        <div class="event-cards">
+            <div class="event-card">
+                <h4>Upcoming Hackathon</h4>
+                <img src="up.jpg" alt="" width="240px" id="ext">
+                <p class="date">April 27, 2025</p>
+                <p>Join us for a 3-hour coding challenge!  Prizes and food will be provided.  Form teams of up to 4 people.</p>
+            </div>
+            <div class="event-card">
+                <h4>Web Development Workshop</h4>
+                <img src="web.jpg" alt="" width="240px" id="ext">
+                <p class="date">May 5, 2025</p>
+                <p>Put your coding skills to the test! Build a creative, functional web project in just 4 hours. Compete solo or in a team, and showcase your talent in design and development.</p>
+            </div>
+            <div class="event-card">
+                <h4>Guest Lecture: AI</h4>
+                <img src="ai.jpg" alt="" width="240px" id="ext">
+                <p class="date">December 28, 2022</p>
+                <p>An expert will talk about the future of Artificial Intelligence.  Q&A session to follow.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <form id="contactForm">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <span class="error-message" id="nameError"></span>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <span class="error-message" id="emailError"></span>
+            </div>
+            <div class="form-group">
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+                <span class="error-message" id="messageError"></span>
+            </div>
+            <button type="submit">Send Message</button>
+            <p id="formSuccess" class="success-message"></p>
+        </form>
+    </section>
+
+    <section id="resources">
+        <h2>Resources to Study</h2>
+        <div class="resource-categories">
+            <div class="resource-category">
+                <h3>Web Development</h3>
+                <ul>
+                    <li><a href="https://www.w3schools.com/" target="_blank">W3Schools</a></li>
+                    <li><a href="https://developer.mozilla.org/" target="_blank">MDN Web Docs</a></li>
+                    <li><a href="https://web.dev/" target="_blank">web.dev</a></li>
+                </ul>
+            </div>
+            <div class="resource-category">
+                <h3>Data Science</h3>
+                <ul>
+                    <li><a href="https://www.coursera.org/" target="_blank">Coursera</a></li>
+                    <li><a href="https://www.edx.org/" target="_blank">edX</a></li>
+                    <li><a href="https://www.kaggle.com/" target="_blank">Kaggle</a></li>
+                </ul>
+            </div>
+            <div class="resource-category">
+                <h3>Mobile Development</h3>
+                <ul>
+                    <li><a href="https://developer.android.com/" target="_blank">Android Developers</a></li>
+                    <li><a href="https://developer.apple.com/" target="_blank">Apple Developer</a></li>
+                    <li><a href="https://flutter.dev/" target="_blank">Flutter</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Programming Prodigies Club</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('contactForm');
+            const nameInput = document.getElementById('name');
+            const emailInput = document.getElementById('email');
+            const messageInput = document.getElementById('message');
+            const nameError = document.getElementById('nameError');
+            const emailError = document.getElementById('emailError');
+            const messageError = document.getElementById('messageError');
+            const formSuccess = document.getElementById('formSuccess');
+
+            form.addEventListener('submit', function(event) {
+                event.preventDefault(); // Prevent actual form submission
+                validateForm();
+            });
+
+            function validateForm() {
+                let isValid = true;
+
+                // Validate Name
+                if (nameInput.value.trim() === '') {
+                    nameError.textContent = 'Name is required';
+                    isValid = false;
+                } else {
+                    nameError.textContent = '';
+                }
+
+                // Validate Email
+                if (emailInput.value.trim() === '') {
+                    emailError.textContent = 'Email is required';
+                    isValid = false;
+                } else if (!isValidEmail(emailInput.value.trim())) {
+                    emailError.textContent = 'Invalid email format';
+                    isValid = false;
+                } else {
+                    emailError.textContent = '';
+                }
+
+                // Validate Message
+                if (messageInput.value.trim() === '') {
+                    messageError.textContent = 'Message is required';
+                    isValid = false;
+                } else {
+                    messageError.textContent = '';
+                }
+
+                if (isValid) {
+                    // In a real scenario, you would send the data here.
+                    // Since no backend is required, we'll just show a success message.
+                    form.reset();
+                    formSuccess.textContent = 'Message sent successfully!';
+                    setTimeout(() => {
+                        formSuccess.textContent = '';
+                    }, 3000);
+                }
+            }
+
+            function isValidEmail(email) {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return emailRegex.test(email);
+            }
+        });
+    </script>
+</body>
+</html>
